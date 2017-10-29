@@ -30,12 +30,21 @@ namespace Person.Name
 
     private string[] GetAllNameParts(string fullName)
     {
-      throw new NotImplementedException("There has been no implementation yet.");
+      char[] charSeparators = {' '};
+      return fullName.Split(charSeparators, StringSplitOptions.RemoveEmptyEntries);
     }
 
     private void FullNameMustHaveAtLeastOneGivenNameAndOneLastName(string[] nameParts)
     {
-      throw new NotImplementedException("There has been no implementation yet.");
+      const int minNoOfGivenNames = 1;
+      const int requiredNoOfLastName = 1;
+
+      if (nameParts.Length < (minNoOfGivenNames + requiredNoOfLastName))
+      {
+        throw new InvalidPersonNameException(
+          "A person name must have at least 1 given name and 1 last name."
+        );
+      }
     }
 
     private void FullNameMayHaveUpToThreeGivenNamesAndOneLastName(string[] nameParts)
