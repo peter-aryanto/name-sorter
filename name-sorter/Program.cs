@@ -9,9 +9,21 @@ namespace MainProgram
   {
     static void Main(string[] args)
     {
+      if (args.Length != 1)
+      {
+        Console.WriteLine("Please execute: name-sorter [text-file-path-and-name]");
+        return;
+      }
+
       List<PersonName> personNameListToSort = ImportPersonNamesFromTextFile(
-        "unsorted-names-list.txt"
+        args[0]
       );
+
+      if (personNameListToSort == null || personNameListToSort.Count == 0)
+      {
+        Console.WriteLine("Program is stopped. No data to process.");
+        return;
+      }
 
       PersonNameSorter personNameSorter = new PersonNameSorter();
       personNameSorter.CaseInsensitiveSort(personNameListToSort);
@@ -25,9 +37,11 @@ namespace MainProgram
       PersonName personName;
       List<PersonName> personNameList = new List<PersonName>();
 
-      StreamReader textFileReader = new StreamReader(textFilePathAndName);
+      StreamReader textFileReader = null;
       try
       {
+        textFileReader = new StreamReader(textFilePathAndName);
+
         while((textLine = textFileReader.ReadLine()) != null)
         {
           try
@@ -71,9 +85,11 @@ namespace MainProgram
     {
       string personFullName;
 
-      StreamWriter textFileWriter = new StreamWriter(textFilePathAndName);
+      StreamWriter textFileWriter = null;
       try
       {
+        textFileWriter = new StreamWriter(textFilePathAndName);
+
         foreach (PersonName personName in personNamesList)
         {
           personFullName = personName.GivenNames + " " + personName.LastName;
