@@ -7,7 +7,13 @@ namespace Person.Name
   {
     public void CaseInsensitiveSort(List<PersonName> personNameListToSort)
     {
-      throw new NotImplementedException("There has been no implementation yet.");
+      personNameListToSort.Sort(
+        (personName1, personName2) => String.Compare(
+          personName1.LastName + personName1.GivenNames,
+          personName2.LastName + personName2.GivenNames,
+          StringComparison.OrdinalIgnoreCase
+        )
+      );
     }
   }
 }
