@@ -22,7 +22,10 @@ namespace Person.Name
 
     private void FullNameCannotBeEmpty(string fullName)
     {
-      throw new NotImplementedException("There has been no implementation yet.");
+      if (String.IsNullOrWhiteSpace(fullName))
+      {
+        throw new InvalidPersonNameException("The full name of a person cannot be empty.");
+      }
     }
 
     private string[] GetAllNameParts(string fullName)
