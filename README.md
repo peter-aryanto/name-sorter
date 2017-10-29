@@ -12,7 +12,7 @@ In /name-sorter (the main directory), execute: `dotnet test`
 
 ## Running Main Program (Console App)
 
-In /name-sorter/name-sorter, execute: `dotnet run`
+In /name-sorter/name-sorter, execute: `dotnet run ./unsorted-names-list.txt`
 
 ## Generating EXE (Assuming Usage for Windows 7 - 64 Bits)
 
