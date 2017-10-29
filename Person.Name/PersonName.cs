@@ -62,7 +62,18 @@ namespace Person.Name
 
     private string GetGivenNamesFromFullName(string[] nameParts)
     {
-      throw new NotImplementedException("There has been no implementation yet.");
+      string givenNames = "";
+
+      for (int index = 0; index < nameParts.Length - requiredNoOfLastName; index++) {
+        if (index > 0)
+        {
+          givenNames = givenNames + " ";
+        }
+
+        givenNames = givenNames + nameParts[index];
+      }
+
+      return givenNames;
     }
   }
 }
