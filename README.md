@@ -21,3 +21,7 @@ In /name-sorter/name-sorter, execute: `dotnet publish -c release -r win7-x64`
 The exe (and the accompanying dependency files) will be generated in `/name-sorter/name-sorter/bin/release/netcoreapp2.0/win7-x64`
 
 The name-sorter.exe can then be used for executing: `name-sorter ./unsorted-names-list.txt`
+
+## Travis:
+
+[Link](https://travis-ci.org/peter-aryanto/name-sorter)
