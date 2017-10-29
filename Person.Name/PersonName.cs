@@ -22,6 +22,18 @@ namespace Person.Name
       LastName = nameParts[nameParts.Length - 1];
     }
 
+    public static int ComparePersonNamesByLastNameThenByGivenNamesAscendingCaseInsensitive(
+      PersonName personName1,
+      PersonName personName2
+    )
+    {
+      return String.Compare(
+        personName1.LastName + personName1.GivenNames,
+        personName2.LastName + personName2.GivenNames,
+        StringComparison.OrdinalIgnoreCase
+      );
+    }
+
     private void FullNameCannotBeEmpty(string fullName)
     {
       if (String.IsNullOrWhiteSpace(fullName))

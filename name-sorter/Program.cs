@@ -25,8 +25,9 @@ namespace MainProgram
         return;
       }
 
-      PersonNameSorter personNameSorter = new PersonNameSorter();
-      personNameSorter.CaseInsensitiveSort(personNameListToSort);
+      personNameListToSort.Sort(
+        PersonName.ComparePersonNamesByLastNameThenByGivenNamesAscendingCaseInsensitive
+      );
 
       ExportPersonNamesToTextFile(personNameListToSort, "sorted-names-list.txt", true);
     }

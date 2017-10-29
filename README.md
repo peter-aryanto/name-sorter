@@ -3,8 +3,8 @@
 ## Structure:
 
 1. Main program (console app) in "/name-sorter/name-sorter" is responsible for interfacing with text file (importing contents from text file and exporting contents to text file).
-2. Source code library in Person.Name is responsible for handling person names and sorting them, as well as defining the exception class for invalid person names.
-3. Test code libray in Person.Name.Test is responsible for unit tests for PersonName class and PersonNameSorter class.
+2. Source code library in Person.Name is responsible for handling person names and defining the rule for sorting them, as well as defining the exception class for invalid person names.
+3. Test code libray in Person.Name.Test is responsible for unit tests for PersonName class.
 
 ## Running Test
 
