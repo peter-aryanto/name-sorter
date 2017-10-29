@@ -4,6 +4,8 @@ namespace Person.Name
 {
   public class PersonName
   {
+    private const int requiredNoOfLastName = 1;
+
     public string GivenNames { get; }
     public string LastName { get; }
 
@@ -37,7 +39,6 @@ namespace Person.Name
     private void FullNameMustHaveAtLeastOneGivenNameAndOneLastName(string[] nameParts)
     {
       const int minNoOfGivenNames = 1;
-      const int requiredNoOfLastName = 1;
 
       if (nameParts.Length < (minNoOfGivenNames + requiredNoOfLastName))
       {
@@ -49,7 +50,14 @@ namespace Person.Name
 
     private void FullNameMayHaveUpToThreeGivenNamesAndOneLastName(string[] nameParts)
     {
-      throw new NotImplementedException("There has been no implementation yet.");
+      const int maxNoOfGivenNames = 3;
+
+      if (nameParts.Length > (maxNoOfGivenNames + requiredNoOfLastName))
+      {
+        throw new InvalidPersonNameException(
+          "A person name may have up to 3 given names and 1 last name."
+        );
+      }
     }
 
     private string GetGivenNamesFromFullName(string[] nameParts)
